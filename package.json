@@ -5,6 +5,8 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "release": "changeset publish",
+    "ci:version": "changeset version",
     "ci:publish": "pnpm publish -r",
     "test": "turbo run test"
   },
