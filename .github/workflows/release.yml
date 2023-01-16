@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'examples/**'
+      - 'assets/**'
+      - '**.md'
+      - '!.changeset/**'
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  version:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install Node, deps
+        uses: ./.github/actions/install-dependencies
+      - name: Build
+        run: pnpm run build
+      - name: Test
+        run: pnpm run test
+      - name: Publish Release
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: pnpm run ci:version
+          commit: 'chore: update versions'
+          title: 'chore: update versions'
+          publish: pnpm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
