@@ -1,6 +1,13 @@
 {
   "name": "proxima-client",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/proximahq/synapses.git",
+    "directory": "packages/client"
+  },
+  "bugs": "https://github.com/proximahq/synapses/issues",
+  "homepage": "https://proxima.so",
   "source": "src/index.ts",
   "main": "dist/client.js",
   "umd:main": "dist/client.umd.js",
