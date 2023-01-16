@@ -16,7 +16,7 @@ declare global {
   }
 }
 
-export interface LoadOptions extends ProximaOptions {
+export interface InitOptions extends ProximaOptions {
   src?: string;
 }
 
@@ -64,8 +64,8 @@ export const event = (
   }
 };
 
-const bumpOpts = (opts: Omit<LoadOptions, 'src'>) => {
-  const keys = Object.keys(opts) as Array<keyof LoadOptions>;
+const bumpOpts = (opts: Omit<InitOptions, 'src'>) => {
+  const keys = Object.keys(opts) as Array<keyof InitOptions>;
   if (keys.length === 0) return [];
   return keys.map((key: string) => {
     // @ts-ignore
@@ -73,7 +73,7 @@ const bumpOpts = (opts: Omit<LoadOptions, 'src'>) => {
   });
 };
 
-export const init = (opts?: LoadOptions): void => {
+export const init = (opts?: InitOptions): void => {
   if (!opts?.site) {
     throw new Error('site is required');
   }
