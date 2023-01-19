@@ -13,4 +13,4 @@ client:
   - packages/client/**
 
 next:
-  - packages/client/**
+  - packages/next/**
