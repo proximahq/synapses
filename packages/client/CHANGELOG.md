@@ -1,5 +1,11 @@
 # @prxm/client
 
+## 1.0.2
+
+### Patch Changes
+
+- [#6](https://github.com/proximahq/synapses/pull/6) [`9a6da42`](https://github.com/proximahq/synapses/commit/9a6da425eee495e54142cfc0d0f99fa76a4b6d04) Thanks [@vorillaz](https://github.com/vorillaz)! - Fix misc
+
 ## 1.0.1
 
 ### Patch Changes
