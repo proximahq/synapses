@@ -1,6 +1,6 @@
 {
-  "name": "proxima-client",
-  "version": "1.0.1",
+  "name": "@prxm/client",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/proximahq/synapses.git",
