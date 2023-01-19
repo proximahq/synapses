@@ -1,6 +1,6 @@
 {
   "name": "proxima-monitor",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "The scripts and examples for Proxima Analytics monitoring",
   "private": true,
   "scripts": {
