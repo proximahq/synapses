@@ -1,4 +1,4 @@
-# proxima-client
+# @prxm/client
 
 ## 1.0.1
 
