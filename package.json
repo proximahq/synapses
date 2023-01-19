@@ -4,10 +4,10 @@
   "description": "The scripts and examples for Proxima Analytics monitoring",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "release": "changeset publish",
+    "build": "turbo run build --output-logs=new-only --no-deps",
     "ci:version": "changeset version",
-    "ci:publish": "pnpm publish -r",
+    "release": "pnpm run build && changeset publish",
+    "version": "changeset version && pnpm install --no-frozen-lockfile && pnpm run format",
     "test": "turbo run test"
   },
   "workspaces": [

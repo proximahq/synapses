@@ -2,40 +2,59 @@ name: Release
 
 on:
   push:
-    branches: [main]
-    paths-ignore:
-      - 'examples/**'
-      - 'assets/**'
-      - '**.md'
-      - '!.changeset/**'
+    branches:
+      - main
 
 defaults:
   run:
     shell: bash
 
+env:
+  FORCE_COLOR: true
+
 jobs:
-  version:
-    name: Release
+  changelog:
+    name: Changelog PR or Release
+    # Sanity check for copy-paste errors
+    if: ${{ github.repository_owner == 'proximahq' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2.2.1
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          fetch-depth: 0
-      - name: Install Node, deps
-        uses: ./.github/actions/install-dependencies
-      - name: Build
+          node-version: 16
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Packages
         run: pnpm run build
-      - name: Test
-        run: pnpm run test
-      - name: Publish Release
+
+      - name: Create Release Pull Request or Publish
         id: changesets
         uses: changesets/action@v1
         with:
-          version: pnpm run ci:version
-          commit: 'chore: update versions'
-          title: 'chore: update versions'
-          publish: pnpm run release
+          version: pnpm run version
+          publish: pnpm exec changeset publish
+          commit: '[ci] release'
+          title: '[ci] release'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Echo Changeset output
+        run: |
+          echo "Changeset published - ${{ steps.changesets.outputs.published }}"
+          echo "Changeset publishedPackages - ${{ steps.changesets.outputs.publishedPackages }}"
+          echo "Changeset hasChangesets - ${{ steps.changesets.outputs.hasChangesets }}"
+          echo "Changeset pullRequestNumber - ${{ steps.changesets.outputs.pullRequestNumber }}"
+
+      # Todo: Add a step to manually trigger non NPM package releases.
+      # Use the publishedPackages output to determine which packages to release.
+      # then check and run an NPM script to release the package in the appropriate package manager.
