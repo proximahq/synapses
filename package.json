@@ -4,13 +4,15 @@
   "description": "The scripts and examples for Proxima Analytics monitoring",
   "private": true,
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "build": "turbo run build --output-logs=new-only --no-deps",
     "release": "pnpm run build && changeset publish",
     "version": "changeset version",
     "test": "turbo run test"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "examples/*"
   ],
   "engines": {
     "node": "^14.18.0 || >=16.12.0",
