@@ -3,12 +3,12 @@ Sometimes it's easier to handle how the Proxima script is loaded and configured 
 
 ## Installation
 ```bash
-npm install proxima-client
+npm install @prxm/client
 ```
 
 ## Usage
 ```js
-import * as client  from 'proxima-client';
+import * as client  from '@prxm/client';
 
 // Load the Proxima script
 client.init({
