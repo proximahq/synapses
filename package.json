@@ -5,9 +5,8 @@
   "private": true,
   "scripts": {
     "build": "turbo run build --output-logs=new-only --no-deps",
-    "ci:version": "changeset version",
     "release": "pnpm run build && changeset publish",
-    "version": "changeset version && pnpm install --no-frozen-lockfile && pnpm run format",
+    "version": "changeset version",
     "test": "turbo run test"
   },
   "workspaces": [
