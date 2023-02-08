@@ -125,6 +125,9 @@ const run = () => {
 
   const init = () => {
     log('init');
+    if ('true' === window?.localStorage?.proxima_ignore) {
+      return console.warn('ignored');
+    }
     if (spa && !manual) {
       switch (spa) {
         case 'off':
