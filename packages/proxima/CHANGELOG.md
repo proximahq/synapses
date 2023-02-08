@@ -1,5 +1,11 @@
 # proxima
 
+## 1.0.7
+
+### Patch Changes
+
+- [#8](https://github.com/proximahq/synapses/pull/8) [`0fc23b5`](https://github.com/proximahq/synapses/commit/0fc23b585ab6fc0586f860d250280f8cfbc95df0) Thanks [@vorillaz](https://github.com/vorillaz)! - Ignore pageviews when there is a localstorage flag in place.
+
 ## 1.0.6
 
 ### Patch Changes
