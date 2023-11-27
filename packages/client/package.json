@@ -34,7 +34,8 @@
     "test:watch": "vitest watch"
   },
   "devDependencies": {
-    "tsup": "8.0.1"
+    "tsup": "8.0.1",
+    "terser": "5.24.0"
   },
   "test": {
     "environment": "happy-dom"
