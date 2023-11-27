@@ -3,7 +3,7 @@ import path from 'path';
 import create from './serve';
 import { loadScript } from './test-utils';
 import { setupServer } from 'msw/node';
-import { rest, RestHandler, MockedRequest, DefaultBodyType } from 'msw';
+import { http, HttpResponse } from 'msw';
 import type { JSONValue } from '../src/types';
 
 // @ts-ignore
@@ -56,11 +56,11 @@ describe('mounting', () => {
     });
   };
 
-  const restHandlers: RestHandler<MockedRequest<DefaultBodyType>>[] = [
-    rest.post(`http://localhost:${port}/torch`, (req, res, ctx) => {
-      const body = req.body as string;
-      allRequests.push(JSON.parse(body) as JSONValue);
-      return res(ctx.status(200), ctx.json(body));
+  const restHandlers = [
+    http.post(`http://localhost:${port}/torch`, async ({ request }) => {
+      const body = await request.json();
+      allRequests.push(body as JSONValue);
+      return HttpResponse.json(body);
     }),
   ];
 
