@@ -9,23 +9,32 @@
   "bugs": "https://github.com/proximahq/synapses/issues",
   "homepage": "https://proxima.so",
   "source": "src/index.ts",
-  "main": "dist/client.js",
-  "umd:main": "dist/client.umd.js",
-  "module": "dist/client.mjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
-    "types": "./dist/client.d.ts",
-    "require": "./dist/client.js",
-    "default": "./dist/client.modern.mjs"
+    ".": {
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
+    }
   },
-  "types": "dist/client.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "microbundle src/index.ts",
+    "build": "tsc --noEmit --lib ESNext,DOM  && tsup",
     "demo": "serve",
     "test": "vitest run",
     "test:watch": "vitest watch"
   },
-  "dependencies": {
-    "microbundle": "0.15.1"
+  "devDependencies": {
+    "tsup": "8.0.1"
   },
   "test": {
     "environment": "happy-dom"
