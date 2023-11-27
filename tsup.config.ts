@@ -23,6 +23,7 @@ export function createTsupConfig({
     minify,
     dts,
     sourcemap,
+    esbuildOptions(options, context) {},
     ...args,
   });
 }

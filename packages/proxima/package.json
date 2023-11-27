@@ -15,16 +15,26 @@
   "scripts": {
     "build": "tsc --noEmit --lib ESNext,DOM  && tsup",
     "demo": "serve",
+    "size": "pnpm run build && pnpm size-limit",
     "test": "vitest run",
     "test:watch": "vitest watch"
   },
   "devDependencies": {
+    "@size-limit/file": "9.0.0",
     "get-port": "6.1.2",
     "msw": "2.0.9",
     "serve-handler": "6.1.5",
-    "tsup": "8.0.1"
+    "size-limit": "9.0.0",
+    "tsup": "8.0.1",
+    "terser": "5.24.0"
   },
   "test": {
     "environment": "happy-dom"
-  }
+  },
+  "size-limit": [
+    {
+      "path": "./dist/script.js",
+      "limit": "2 KB"
+    }
+  ]
 }
