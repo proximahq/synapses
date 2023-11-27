@@ -8,7 +8,7 @@
   },
   "bugs": "https://github.com/proximahq/synapses/issues",
   "homepage": "https://proxima.so",
-  "main": "./dist/script.js",
+  "main": "./dist/script.cjs.js",
   "source": "src/index.ts",
   "unpkg": "./dist/script.js",
   "types": "./src/types.d.ts",
