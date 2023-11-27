@@ -11,11 +11,12 @@ This monorepo is home to a variety of packages, each of which serves as a unique
 ## Understanding Synapses
 A synapse is a specific type of integration - a piece of code that facilitates a connection between your data and the Proxima Analytics platform. These integrations can also be referred to as plugins.
 
+We are using the term `Synapse` to refer to our integrations and how data flows between your systems and Proxima Analytics. 
+
 
 ## Contents
 - [Proxima Analytics Synapses](/packages/proxima/)
 - [Proxima NPM package client](/packages/client)
-
 
 ### What is Proxima Analytics?
 Proxima Analytics is an open-source, privacy-centric, and self-hostable analytics solution. It is designed as a viable alternative to Google Analytics, and offers various features that allow for greater control over your data. For more information, visit https://proxima.so
