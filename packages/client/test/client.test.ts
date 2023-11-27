@@ -1,7 +1,7 @@
 // @vitest-environment happy-dom
 import { describe, expect, test, beforeEach, afterEach } from 'vitest';
 import * as client from '../src/index';
-import type { LoadOptions } from '../src/index';
+import type { InitOptions } from '../src/index';
 beforeEach(() => {
   // @ts-ignore
   window.proxima = undefined;
@@ -43,7 +43,7 @@ describe('init', () => {
       spa: 'hash',
       url: 'http://example.com',
       hostname: 'foo.bar',
-    } as LoadOptions;
+    } as InitOptions;
 
     client.init(options);
     const script = document.getElementById('proxima-script');
