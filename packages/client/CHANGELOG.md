@@ -1,5 +1,18 @@
 # @prxm/client
 
+## 1.0.3
+
+### Patch Changes
+
+- [#14](https://github.com/proximahq/synapses/pull/14) [`59c9753`](https://github.com/proximahq/synapses/commit/59c97532d10938761c62cfbd66f6ce1667da1ecb) Thanks [@vorillaz](https://github.com/vorillaz)! - Fix: add terser
+  Chore: add performance budget
+
+- [#12](https://github.com/proximahq/synapses/pull/12) [`a464c61`](https://github.com/proximahq/synapses/commit/a464c612f78ee096cca51bf12033cdfed508ad44) Thanks [@vorillaz](https://github.com/vorillaz)! - Fix build content
+
+- [#13](https://github.com/proximahq/synapses/pull/13) [`b0a173f`](https://github.com/proximahq/synapses/commit/b0a173fce482b8a511c701c521bdaa436c189060) Thanks [@vorillaz](https://github.com/vorillaz)! - fix: peer dependencies upgrade
+
+- [#13](https://github.com/proximahq/synapses/pull/13) [`b853c3a`](https://github.com/proximahq/synapses/commit/b853c3a8adf2e034acd99dea2706a1885cece3e1) Thanks [@vorillaz](https://github.com/vorillaz)! - fix: peer dependencies upgrade
+
 ## 1.0.2
 
 ### Patch Changes
