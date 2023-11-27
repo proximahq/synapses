@@ -15,8 +15,7 @@ export const doNotTrack = () => {
 };
 
 export const buildLog = () => (msg: string | string[]) => {
-  // @ts-ignore
-  if (DEBUG as string) {
-    console.warn('Proxima:', msg);
+  if (process.env.DEBUG === 'true') {
+    console.warn('Proxima script:', msg);
   }
 };

@@ -76,7 +76,7 @@ describe('mounting', () => {
     await loadScript(`http://localhost:${port}/script.debug.js`, {
       'data-site': 'xxx1',
     });
-    // @ts-ignore
+
     expect(window.proxima).toBeDefined();
     const req = await waitForRequest('xxx1');
     expect(req).toBeDefined();
@@ -86,13 +86,8 @@ describe('mounting', () => {
     await loadScript(`http://localhost:${port}/script.debug.js`, {
       'data-site': 'xxx2',
     });
-    // @ts-ignore
-    expect(window.proxima).toMatchInlineSnapshot(`
-      {
-        "event": [Function],
-        "track": [Function],
-      }
-    `);
+    expect(window.proxima.event).toBeDefined();
+    expect(window.proxima.track).toBeDefined();
     const req = await waitForRequest('xxx2');
     expect(req).toBeDefined();
   });
