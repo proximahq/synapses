@@ -13,19 +13,17 @@
   "unpkg": "./dist/script.js",
   "types": "./src/types.d.ts",
   "scripts": {
-    "dev": "microbundle watch --no-sourcemap --generateTypes false --target web --define DEBUG=true  --raw -f iife src/index.ts -o dist/script.debug.js",
-    "build": "npm run build:core && npm run build:debug",
-    "build:core": "microbundle --no-sourcemap --generateTypes false --target web --define DEBUG=false --raw -f iife src/index.ts -o dist/script.js",
-    "build:debug": "microbundle --no-sourcemap --generateTypes false --target web --define DEBUG=true  --raw -f iife src/index.ts -o dist/script.debug.js",
+    "build": "tsc --noEmit --lib ESNext,DOM  && tsup",
+    "build:debug": "tsc --noEmit --lib ESNext,DOM  && tsup --env.DEBUG true ",
     "demo": "serve",
     "test": "vitest run",
     "test:watch": "vitest watch"
   },
   "devDependencies": {
     "get-port": "6.1.2",
-    "microbundle": "0.15.1",
     "msw": "0.49.2",
-    "serve-handler": "6.1.5"
+    "serve-handler": "6.1.5",
+    "tsup": "8.0.1"
   },
   "test": {
     "environment": "happy-dom"
